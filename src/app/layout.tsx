@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { NavLink } from "./lib/components/nav-link";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +17,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav className="has-background-dark	p-5 has-text-white-ter">
+          <div id="navbarBasicExample" className="navbar-menu">
+            <div className="navbar-start">
+              <NavLink href='/lecturers' className="navbar-item">
+                Lecturers
+              </NavLink>
+              <NavLink href='/lecturers/add' className="navbar-item">
+                Add Lecturers
+              </NavLink>
+            </div>
+          </div>
+        </nav>
+        <div className="p-5">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
